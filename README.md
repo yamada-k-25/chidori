@@ -17,3 +17,15 @@ $ export PATH="$PATH:$(brew --prefix)/opt/llvm/bin"
 $ which llvm-objcopy
 /opt/homebrew/opt/llvm/bin/llvm-objcopy
 ```
+
+## Build
+
+```shell
+cargo build --target riscv32i-unknown-none-elf
+```
+
+## Run
+
+```shell
+qemu-system-riscv32 -machine virt -bios default -nographic -serial mon:stdio --no-reboot -kernel target/riscv32i-unknown-none-elf/chidori
+```
