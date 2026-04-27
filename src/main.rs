@@ -4,6 +4,8 @@
 use core::panic::PanicInfo;
 use core::arch::naked_asm;
 
+mod kernel;
+
 unsafe extern "C" {
     static __bss: u8;
     static __bss_end: u8;
@@ -30,14 +32,6 @@ fn memset(mut p: *mut u8, value: u8, mut size: u32) {
 
 #[panic_handler]
 fn panic(_info: &PanicInfo) -> ! {
-    loop {}
-}
-
-
-#[unsafe(no_mangle)]
-pub unsafe extern "C" fn kernel_main() -> ! {
-    memset(bss(), 0, bss_end() as u32 - bss() as u32);
-
     loop {}
 }
 
