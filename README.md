@@ -27,5 +27,5 @@ cargo build --target riscv32i-unknown-none-elf
 ## Run
 
 ```shell
-qemu-system-riscv32 -machine virt -bios default -nographic -serial mon:stdio --no-reboot -kernel target/riscv32i-unknown-none-elf/chidori
+qemu-system-riscv32 -machine virt -bios default -nographic -serial mon:stdio --no-reboot -kernel target/riscv32i-unknown-none-elf/debug/chidori
 ```
