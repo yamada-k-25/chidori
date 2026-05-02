@@ -1,9 +1,10 @@
 #![no_std]
 #![no_main]
 
-use core::panic::PanicInfo;
 use core::arch::naked_asm;
+use core::panic::PanicInfo;
 
+mod common;
 mod kernel;
 
 unsafe extern "C" {
@@ -45,4 +46,3 @@ pub unsafe extern "C" fn boot() -> ! {
         stack_top = sym __stack_top
     )
 }
-
